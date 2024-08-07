@@ -51,7 +51,7 @@ const agreementChecked = ref(false)
             </template>
             <v-list-item-subtitle>{{ value }}</v-list-item-subtitle>
             <template v-slot:append>
-              <v-btn color="warning" variant="text">修正</v-btn>
+              <v-btn to="/ec/customer" color="warning" variant="text">修正</v-btn>
             </template>
           </v-list-item>
         </v-list>
@@ -68,7 +68,7 @@ const agreementChecked = ref(false)
             </template>
             <v-list-item-subtitle>{{ value }}</v-list-item-subtitle>
             <template v-slot:append>
-              <v-btn color="warning" variant="text">修正</v-btn>
+              <v-btn to="/ec/plan" color="warning" variant="text">修正</v-btn>
             </template>
           </v-list-item>
         </v-list>
@@ -119,10 +119,6 @@ const agreementChecked = ref(false)
 
     <v-btn to="/ec/thanks" color="success" block x-large class="mb-4">
       注文手続きを完了する
-    </v-btn>
-
-    <v-btn text block to="/ec/customer">
-      入力内容を修正する
     </v-btn>
   </v-container>
 </template>
