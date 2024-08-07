@@ -21,18 +21,19 @@ LPからカート・マイページに遷移して買い物や管理ができる
 
 *現時点での使い方
 
-# フロント(pacages/app)
+# 使用技術
+## フロント(pacages/app)
 Nuxt.js
 TypeScript
 vuetify
 
-# バックエンド(packages/api)
+## バックエンド(packages/api)
 Go
 
-# DB
+## DB
 MySQL
 
-# インフラ(実装予定)
+## インフラ(実装予定)
 CDK
 ECR
 CI/CD(Github Actinons)
