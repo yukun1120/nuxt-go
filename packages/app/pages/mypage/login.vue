@@ -1,5 +1,5 @@
 <template>
-    <div style="margin: auto 0 ;">
+    <div>
 
       <v-card
         class="mx-auto pa-12 pb-8"
@@ -44,6 +44,7 @@
           size="large"
           variant="tonal"
           block
+          to="/mypage/login"
         >
           Log In
         </v-btn>
@@ -62,16 +63,13 @@
     </div>
   </template>
 
-  <script setup>
+  <script setup lang="ts">
     import { ref } from 'vue'
 
-    const visible = ref(false)
-  </script>
+    definePageMeta({
+      layout: 'mypage-layout'
+    })
 
-  <script>
-    export default {
-      data: () => ({
-        visible: false,
-      }),
-    }
+    const visible = ref(false)
+
   </script>

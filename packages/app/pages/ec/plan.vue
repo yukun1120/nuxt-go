@@ -53,7 +53,7 @@ const calculateRecurringPayment = computed(() => {
     </v-row>
 
     <h2 class="text-h6 mt-6 mb-2">オプションはご一緒にいかがですか？</h2>
-    <v-checkbox v-model="safetyOption" label="安心保証オプション">
+    <v-checkbox v-model="safetyOption" label="安心保証オプション" style="background-color: white;">
       <template v-slot:label>
         <div>
           安心保証オプション
@@ -79,7 +79,7 @@ const calculateRecurringPayment = computed(() => {
           </div>
         </template>
       </v-radio>
-      <v-radio label="翌月配送予約" value="nextmonth">
+      <v-radio label="翌月配送予約" value="nextmonth" >
         <template v-slot:label>
           <div>
             翌月配送予約
@@ -146,8 +146,7 @@ const calculateRecurringPayment = computed(() => {
       </div>
     </v-card>
 
-    <v-btn color="success" x-large block class="mt-6">お客様情報登録に進む</v-btn>
-    <!-- <nuxt-link to="/consoles/mypage">マイページ</nuxt-link> -->
+    <v-btn to="/ec/customer" color="success" x-large block class="mt-6">お客様情報登録に進む</v-btn>
   </v-container>
 </template>
 
