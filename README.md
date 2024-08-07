@@ -16,4 +16,6 @@ LPからカート・マイページに遷移して買い物や管理ができる
 1. `git clone`
 2. appディレクトリで`npm install`
 3. appディレクトリで`npm run dev`
+4. appディレクトリで`npm run build`
+
 *現時点での使い方
