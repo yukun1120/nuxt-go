@@ -14,7 +14,9 @@ export default defineNuxtConfig({
         config.plugins.push(vuetify({ autoImport: true }))
       })
     },
-    //...s
+    // ['@pinia/nuxt', {
+    //   autoImports: ['defineStore', 'acceptHMRUpdate'],
+    // }],
   ],
   vite: {
     vue: {
