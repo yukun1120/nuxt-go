@@ -1,20 +1,29 @@
 <script setup lang="ts">
 import {ref,computed} from 'vue'
+import { useCounterStore } from '~/stores/ec';
+
 
 definePageMeta({
   layout: 'ec-layout'
 })
 
+// piniaテスト
+const counterStore = useCounterStore();
+const { increment } = counterStore;
+const { count } = storeToRefs(counterStore);
+
+
 interface Plan {
+  planId: number,
   name: string
   price: number
 }
 
 
 const plans = ref<Plan[]>([
-  {name: "レンタルプラン", price: 4750},
-  { name: '新規購入レンタルプラン', price: 5250 },
-  { name: '新規購入分割払いプラン', price: 4800 },
+  { planId:1, name: "レンタルプラン", price: 4750},
+  { planId:2, name: '新規購入レンタルプラン', price: 5250 },
+  { planId:3, name: '新規購入分割払いプラン', price: 4800 },
 ])
 
 const selectedPlan = ref(0)
@@ -40,6 +49,14 @@ const calculateRecurringPayment = computed(() => {
 
 <template>
   <v-container style="height: calc(100vh - 64px); overflow-y: auto;">
+    <!-- piniaテスト -->
+    <div style="background-color: aquamarine;">
+      <h1>Count:{{ count }}</h1>
+      <button @click="increment">たすよ</button>
+      <br />
+      <nuxt-link to="/">もどる</nuxt-link>
+    </div>
+    <!-- piniaテスト -->
     <h1 class="text-h5 mb-4">ご希望のプランをお選びください</h1>
     <v-row>
       <v-col cols="12" sm="4" v-for="(plan, index) in plans" :key="index">

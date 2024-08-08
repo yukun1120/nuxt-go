@@ -1,5 +1,11 @@
 <template>
     <v-container style="height: calc(100vh - 64px); overflow-y: auto;">
+        <div style="background-color: aqua;">
+            <nuxt-link to="/ec/plan"> 戻る </nuxt-link>
+            <!-- <nuxt-link to="/contentList"> 再描画ページへとぶ </nuxt-link>
+            <nuxt-link to="/pinia"> 永続化実験用カウンターアプリへ飛ぶ </nuxt-link> -->
+            <p>persistedState　ぼたんをおしました : {{ counter.count }}回</p>
+        </div>
       <h1 class="text-h5 mb-4">お客様情報の登録をお願いいたします</h1>
       <p class="text-caption mb-4">※は必須項目となります</p>
 
@@ -177,6 +183,9 @@
 
   <script setup lang="ts">
   import { ref, reactive } from 'vue'
+  import { useCounterStore } from '~/stores/ec';
+
+  const counter = useCounterStore();
 
   const valid = ref(false)
 
