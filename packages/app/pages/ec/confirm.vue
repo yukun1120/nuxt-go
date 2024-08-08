@@ -117,8 +117,10 @@ const agreementChecked = ref(false)
       </v-card-text>
     </v-card>
 
-    <v-btn to="/ec/thanks" color="success" block x-large class="mb-4">
-      注文手続きを完了する
-    </v-btn>
+    <nuxt-link to="/ec/thanks" style="text-decoration: none;">
+        <v-btn color="success" block x-large class="mb-4">
+        注文手続きを完了する
+        </v-btn>
+    </nuxt-link>
   </v-container>
 </template>

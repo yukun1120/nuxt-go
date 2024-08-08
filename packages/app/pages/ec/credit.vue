@@ -103,24 +103,26 @@ const submitForm = () => {
         </div>
       </v-card>
 
-      <v-btn
-        color="success"
-        block
-        x-large
-        to="/ec/confirm"
-        class="mt-4"
-      >
-        ご注文内容の確認に進む
-      </v-btn>
+      <nuxt-link to="/ec/confirm" style="text-decoration: none;">
+        <v-btn
+            color="success"
+            block
+            x-large
+            class="mt-4"
+        >
+            ご注文内容の確認に進む
+        </v-btn>
+      </nuxt-link>
     </v-form>
 
-    <v-btn
-      text
-      block
-      to="/ec/customer"
-      class="mt-4"
-    >
-      お客様情報の入力に戻る
-    </v-btn>
+    <nuxt-link to="/ec/customer" style="text-decoration: none;">
+        <v-btn
+        text
+        block
+        class="mt-4"
+        >
+        お客様情報の入力に戻る
+        </v-btn>
+    </nuxt-link>
   </v-container>
 </template>

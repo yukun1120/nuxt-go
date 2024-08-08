@@ -37,17 +37,17 @@
           variant="outlined"
           @click:append-inner="visible = !visible"
         ></v-text-field>
-
-        <v-btn
-          class="mb-8"
-          color="blue"
-          size="large"
-          variant="tonal"
-          block
-          to="/mypage/login"
-        >
-          Log In
-        </v-btn>
+        <nuxt-link to="/mypage/login" style="text-decoration: none;">
+            <v-btn
+            class="mb-8"
+            color="blue"
+            size="large"
+            variant="tonal"
+            block
+            >
+                Log In
+            </v-btn>
+        </nuxt-link>
 
         <v-card-text class="text-center">
           <a

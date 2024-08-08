@@ -167,15 +167,16 @@
             label="配送先住所を別途設定する"
           ></v-checkbox>
 
-          <v-btn
-            color="primary"
-            block
-            large
-            to="/ec/credit"
-            :disabled="valid"
-          >
-            カード情報の入力
-          </v-btn>
+          <nuxt-link to="/ec/credit" style="text-decoration: none;">
+            <v-btn
+                color="primary"
+                block
+                large
+                :disabled="valid"
+            >
+                カード情報の入力
+            </v-btn>
+          </nuxt-link>
         </v-card>
       </v-form>
     </v-container>

@@ -163,7 +163,11 @@ const calculateRecurringPayment = computed(() => {
       </div>
     </v-card>
 
-    <v-btn to="/ec/customer" color="success" x-large block class="mt-6">お客様情報登録に進む</v-btn>
+    <nuxt-link to="/ec/customer" style="text-decoration: none;">
+      <v-btn color="success" x-large block class="mt-6" >
+        お客様情報登録に進む
+      </v-btn>
+    </nuxt-link>
   </v-container>
 </template>
 
