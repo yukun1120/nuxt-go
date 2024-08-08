@@ -177,6 +177,15 @@
                 カード情報の入力
             </v-btn>
           </nuxt-link>
+          <nuxt-link to="/ec/plan" style="text-decoration: none;">
+              <v-btn
+              text
+              block
+              class="mt-4"
+              >
+              プラン選択の入力に戻る
+              </v-btn>
+          </nuxt-link>
         </v-card>
       </v-form>
     </v-container>
