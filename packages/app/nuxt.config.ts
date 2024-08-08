@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     ['@pinia/nuxt', {
       autoImports: ['defineStore', 'acceptHMRUpdate'],
     }],
+    '@pinia-plugin-persistedstate/nuxt'
   ],
   vite: {
     vue: {
