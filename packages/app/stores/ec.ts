@@ -12,25 +12,34 @@ export const useCounterStore = defineStore('counter', () => {
     persist: true,
 }
 )
-// しかしcookieで保存されている。。。？
-// localStorageじゃない
 
+export const useCustomerStore = defineStore('customer', () => {
+  const customer = ref({
+    lastName: '',
+    firstName: '',
+    lastNameKana: '',
+    firstNameKana: '',
+    birthYear: '',
+    birthMonth: '',
+    birthDay: '',
+    email: '',
+    mobilePhone: '',
+    homePhone: '',
+    postalCode: '',
+    prefecture: '',
+    city: '',
+    building: '',
+    separateDelivery: false
+  });
 
-// interface planStore {
-//     planId: number,
-//     name: string,
-//     price: number,
-// }
+  function saveCustomer(formData: any) {
+    customer.value = { ...formData };
+  }
 
-// export const usePlanSelectStore = defineStore('counter', {
-//   state: (): planStore => ({
-//     planId: 1,
-//     name: "レンタルプラン",
-//     price: 4750
-//   }),
-//   actions: {
-//     increment() {
-//       this.planId++
-//     },
-//   },
-// })
+  return { customer, saveCustomer };
+},
+{
+  persist: {
+    key: 'customer-info'
+  },
+})

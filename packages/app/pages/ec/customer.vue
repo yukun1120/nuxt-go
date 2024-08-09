@@ -1,3 +1,36 @@
+<script setup lang="ts">
+import { ref, reactive, onMounted } from 'vue'
+import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+import { useCustomerStore } from '~/stores/ec';
+import { storeToRefs } from 'pinia'
+
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
+
+const customerStore = useCustomerStore();
+const { customer } = storeToRefs(customerStore);
+
+const counter = useCounterStore();
+
+const form = reactive({ ...customer.value })
+
+const yearItems = Array.from({ length: 100 }, (_, i) => (new Date().getFullYear() - i).toString())
+const monthItems = Array.from({ length: 12 }, (_, i) => (i + 1).toString().padStart(2, '0'))
+const dayItems = Array.from({ length: 31 }, (_, i) => (i + 1).toString().padStart(2, '0'))
+
+const submitForm = () => {
+    customerStore.saveCustomer(form);
+    console.log('フォームが送信されました', form)
+    // ここで次のページにナビゲートするなどの処理を追加
+}
+
+onMounted(() => {
+  // ストアからデータを読み込んでフォームに設定
+  Object.assign(form, customer.value)
+})
+</script>
+
 <template>
     <v-container style="height: calc(100vh - 64px); overflow-y: auto;">
         <div style="background-color: aqua;">
@@ -9,7 +42,7 @@
       <h1 class="text-h5 mb-4">お客様情報の登録をお願いいたします</h1>
       <p class="text-caption mb-4">※は必須項目となります</p>
 
-      <v-form v-model="valid" @submit.prevent="submitForm">
+      <v-form @submit.prevent="submitForm">
         <v-card class="pa-4">
           <h2 class="text-h6 mb-4">お客様情報</h2>
 
@@ -172,7 +205,7 @@
                 color="primary"
                 block
                 large
-                :disabled="valid"
+                @click="submitForm"
             >
                 カード情報の入力
             </v-btn>
@@ -190,41 +223,3 @@
       </v-form>
     </v-container>
   </template>
-
-  <script setup lang="ts">
-  import { ref, reactive } from 'vue'
-  import { useCounterStore } from '~/stores/ec';
-
-  const counter = useCounterStore();
-
-  const valid = ref(false)
-
-  const form = reactive({
-    lastName: '',
-    firstName: '',
-    lastNameKana: '',
-    firstNameKana: '',
-    birthYear: '',
-    birthMonth: '',
-    birthDay: '',
-    email: '',
-    mobilePhone: '',
-    homePhone: '',
-    postalCode: '',
-    prefecture: '',
-    city: '',
-    building: '',
-    separateDelivery: false
-  })
-
-  const yearItems = Array.from({ length: 100 }, (_, i) => (new Date().getFullYear() - i).toString())
-  const monthItems = Array.from({ length: 12 }, (_, i) => (i + 1).toString().padStart(2, '0'))
-  const dayItems = Array.from({ length: 31 }, (_, i) => (i + 1).toString().padStart(2, '0'))
-
-  const submitForm = () => {
-    if (valid.value) {
-        // フォームの送信処理をここに実装
-        console.log('フォームが送信されました', form)
-        }
-    }
-  </script>
