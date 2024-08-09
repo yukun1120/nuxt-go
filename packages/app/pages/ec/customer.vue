@@ -1,23 +1,20 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
-import { createPinia } from 'pinia'
-import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import { useCustomerStore } from '~/stores/ec';
 import { storeToRefs } from 'pinia'
 
-const pinia = createPinia()
-pinia.use(piniaPluginPersistedstate)
+const counter = useCounterStore();
 
 const customerStore = useCustomerStore();
 const { customer } = storeToRefs(customerStore);
-
-const counter = useCounterStore();
-
 const form = reactive({ ...customer.value })
+
+
 
 const yearItems = Array.from({ length: 100 }, (_, i) => (new Date().getFullYear() - i).toString())
 const monthItems = Array.from({ length: 12 }, (_, i) => (i + 1).toString().padStart(2, '0'))
 const dayItems = Array.from({ length: 31 }, (_, i) => (i + 1).toString().padStart(2, '0'))
+
 
 const submitForm = () => {
     customerStore.saveCustomer(form);

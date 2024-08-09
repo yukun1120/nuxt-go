@@ -15,7 +15,7 @@ export default defineNuxtConfig({
       })
     },
     ['@pinia/nuxt', {
-      autoImports: ['defineStore', 'acceptHMRUpdate'],
+      autoImports: ['defineStore', 'acceptHMRUpdate', 'storeToRefs'],
     }],
     '@pinia-plugin-persistedstate/nuxt'
   ],
