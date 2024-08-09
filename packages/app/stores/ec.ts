@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 
 export const useCounterStore = defineStore('counter', () => {
     const count = ref(0);
@@ -12,7 +12,8 @@ export const useCounterStore = defineStore('counter', () => {
     persist: true,
 }
 )
-
+// しかしcookieで保存されている。。。？
+// localStorageじゃない
 
 
 // interface planStore {
