@@ -1,20 +1,18 @@
-import {defineStore } from 'pinia'
+import { defineStore } from 'pinia';
+import { ref, computed } from 'vue';
 
-interface counter {
-    count: number,
+export const useCounterStore = defineStore('counter', () => {
+    const count = ref(0);
+    function increment() {
+        count.value++
+    }
+    return { count, increment };
+},
+{
+    persist: true,
 }
+)
 
-export const useCounterStore = defineStore('counter', {
-    state: (): counter => ({ count: 0 }),
-    getters: {
-      doubleCount: (state) => state.count * 2,
-    },
-    actions: {
-      increment() {
-        this.count++
-      },
-    },
-})
 
 
 // interface planStore {

@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import {ref,computed} from 'vue'
 import { useCounterStore } from '~/stores/ec';
-
+import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 definePageMeta({
   layout: 'ec-layout'
 })
+
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
 
 // piniaテスト
 const counterStore = useCounterStore();
